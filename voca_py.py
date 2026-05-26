@@ -5,28 +5,39 @@
 
 import random
 
-#csv set up
-#no need to import csv
+#CSV SET UP
+import csv
 
-def generate_vocab_lists(filename):
+def read_file():
+    with open('vocab_listing.csv') as vocab_csv:
+        pass
+    
+def generate_flashcards():
     unknown_list = []
     known_list = []
 
-    file_in = open(filename, encoding="utf-8")
-    #utf-8 can handle chinese character
-    file_in.readline()
+    #read csv file
+    #update two lists
+    #scramble both lists
+    #display to tkinter
 
-    for line in file_in:
-        line = line.strip().split(",")
-        #each line is thing1, thing2, thing3
-        #line is a list
+def add_vocab():
+    with open('vocab_listing.csv') as vocab_csv:
+        #read original file
 
-        unknown_list.append(line[0])
-        known_list.append(line[1])
+        #rewrite whole file
+        #add one new line
+        line_writer=csv.writer(vocab_csv, delimiter=',')
 
-    return unknown_list, known_list
-    
-#tkinter
+def delete_vocab():
+    #find index of listbox
+    #read csv file
+    #copy to list
+    #delete that index from list
+    #recreate whole csv file
+    pass
+        
+#TKINTER SET UP
 from tkinter import *
 from tkinter.font import Font
 
@@ -38,22 +49,17 @@ mainframe = Frame(root)
 root.title("Voca\'py (name work in progress)")
 
 #set up widgets
+vocab_list = ['example', 'example2']
+vocab_list_var = StringVar()
+vocab_list_var.set(vocab_list)
 
-#--->display all vocab using listbox
+vocab_display_lb = Listbox(mainframe, listvariable=vocab_list_var, selectmode=SINGLE, height=10)
+
+edit_vocab_frame = LabelFrame(mainframe, text="Edit Vocab List")
+
+flashcard_frame = Label
 
 #gridding
+mainframe.grid(padx=50, pady=20)
 
-
-
-#flashcard mode
-#--->read from csv
-#--->randomly scramble list
-#--->then go through this list, 0, 1, 2...
-
-#recording mode
-#--->enter new word and add to csv
-
-def main():
-    generate_vocab_lists(vocab_listing)
-
-main()
+vocab_display_lb.grid(row=1, column=1)
