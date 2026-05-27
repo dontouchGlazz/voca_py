@@ -10,6 +10,8 @@ import csv
 
 def update_listbox():
     global unknown_list, known_list
+
+    read_csv_file()
     
     unknown_list_var.set(unknown_list)
     known_list_var.set(known_list)
@@ -32,21 +34,25 @@ def read_csv_file():
                     #insert reading code here
                     unknown_list.append(row[0])
                     known_list.append(row[1])
+
+    #overwriting file to clean it does not work
                 
     print('\ncsv file was read')
 
 def place_writer_at_end():
+    print("placing writer at end....")
     global unknown_list, known_list
     read_csv_file()
 
     #rewrite whole file
     with open('vocab_listing.csv', 'w') as vocab_csv:
         line_writer = csv.writer(vocab_csv, delimiter=',')
+        line_countby = 0
 
         for i in range(0,len(unknown_list)):
             line_writer.writerow([unknown_list[i], known_list[i]])
-            print(f'{unknown_list[i]} and {known_list[i]} was written')
-            #currently here
+            print(f'{unknown_list[i]} and {known_list[i]} was in row {line_countby}')
+            line_countby+=1
             
     print('writer placed at end')
 
@@ -56,11 +62,19 @@ def generate_test_values():
     with open('vocab_listing.csv', 'w') as vocab_csv:
         line_writer = csv.writer(vocab_csv, delimiter=',')
         
-        #add one new line
         line_writer.writerow(['skibidi', 'toilet'])
         line_writer.writerow(['ohio', 'six seven'])
         line_writer.writerow(['diddy', 'blud'])
     print('test values generated')
+    
+    #testing
+    with open('vocab_listing.csv', 'r') as vocab_csv:
+        line_countby = 0
+        line_reader = csv.reader(vocab_csv, delimiter=',')
+        for row in line_reader:
+            print(f'{row} was written in row {line_countby}')
+            line_countby += 1
+            
 
     update_listbox()
 
@@ -91,6 +105,8 @@ def add_vocab():
         line_reader = csv.reader(vocab_csv, delimiter=',')
         for row in line_reader:
             print(f'{row} was added')
+
+    update_listbox()
 
 def delete_vocab():
     #find index of listbox
