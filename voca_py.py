@@ -7,15 +7,24 @@ import random
 
 #CSV SET UP
 import csv
-def read_csv_file():
+
+def update_listbox():
     global unknown_list, known_list
-    unknown_list = []
-    known_list = []
+    
+    unknown_list_var.set(unknown_list)
+    known_list_var.set(known_list)
+
+    print('listbox was updated')
+
+def read_csv_file():
+    #clear "memory"
+    global unknown_list, known_list
+    unknown_list=[]
+    known_list=[]
     
     with open('vocab_listing.csv') as vocab_csv:
         #read original file
         line_reader = csv.reader(vocab_csv, delimiter=',')
-        line_counter=0
 
         for row in line_reader:
             if len(row) > 1:
@@ -23,15 +32,12 @@ def read_csv_file():
                     #insert reading code here
                     unknown_list.append(row[0])
                     known_list.append(row[1])
-            
-                line_counter+=1
+                
+    print('\ncsv file was read')
 
 def place_writer_at_end():
     global unknown_list, known_list
-    
-    with open('vocab_listing.csv') as vocab_csv:
-        #read file
-        read_csv_file()
+    read_csv_file()
 
     #rewrite whole file
     with open('vocab_listing.csv', 'w') as vocab_csv:
@@ -39,6 +45,10 @@ def place_writer_at_end():
 
         for i in range(0,len(unknown_list)):
             line_writer.writerow([unknown_list[i], known_list[i]])
+            print(f'{unknown_list[i]} and {known_list[i]} was written')
+            #currently here
+            
+    print('writer placed at end')
 
 def generate_test_values():
     place_writer_at_end()
@@ -50,6 +60,9 @@ def generate_test_values():
         line_writer.writerow(['skibidi', 'toilet'])
         line_writer.writerow(['ohio', 'six seven'])
         line_writer.writerow(['diddy', 'blud'])
+    print('test values generated')
+
+    update_listbox()
 
 def add_vocab():
     global unknown_list, known_list
@@ -60,18 +73,24 @@ def add_vocab():
     unknown_word = entered_word[:comma_index]
     known_word = entered_word[comma_index+1:]
 
+    print(f'word is {unknown_word} and {known_word}')
+
     unknown_list.append(unknown_word)
     known_list.append(known_word)
     
     place_writer_at_end()
     
     with open('vocab_listing.csv', 'w') as vocab_csv:
+        
         line_writer = csv.writer(vocab_csv, delimiter=',')
         #add one new line
         line_writer.writerow([unknown_word, known_word])
 
-    unknown_list_var.set(unknown_list)
-    known_list_var.set(known_list)
+
+    with open('vocab_listing.csv', 'r') as vocab_csv:
+        line_reader = csv.reader(vocab_csv, delimiter=',')
+        for row in line_reader:
+            print(f'{row} was added')
 
 def delete_vocab():
     #find index of listbox
@@ -119,13 +138,9 @@ root.title("Voca\'py (name work in progress)")
 edit_vocab_frame = LabelFrame(mainframe, text="Edit Vocab List")
 
 #FIX THIS LISTBOX
-read_csv_file()
 
 unknown_list_var = StringVar()
-unknown_list_var.set(unknown_list)
-
 known_list_var = StringVar()
-known_list_var.set(known_list)
 
 unknown_lb_label = Label(edit_vocab_frame, text="Unknown Words")
 unknown_vocab_display_lb = Listbox(edit_vocab_frame, listvariable=unknown_list_var, \
@@ -191,6 +206,10 @@ next_button.grid(row=2, column=2)
 
 #test
 generate_test.grid(row=3, column=1)
+
+#main()
+read_csv_file()
+update_listbox()
 
 
 
