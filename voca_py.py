@@ -217,7 +217,7 @@ word_entry = Entry(edit_vocab_frame, textvariable=add_word_var)
 ####flashcard frame (flashcards, refresh, next)
 flashcard_frame = LabelFrame(mainframe, text='Flashcards')
 
-unknown_word_frame = LabelFrame(flashcard_frame, text="Unknown word", height=50)
+unknown_word_frame = LabelFrame(flashcard_frame, text="Unknown word")
 known_word_frame = LabelFrame(flashcard_frame, text="Definition")
 
 unknown_word_var = StringVar()
@@ -254,6 +254,7 @@ word_entry.grid(row=4, column=1, columnspan=2, pady=10)
 flashcard_frame.grid(row=1, column=2, padx=20)
 
 unknown_word_frame.grid(row=1, column=1, padx=10)
+
 known_word_frame.grid(row=1, column=2, padx=10)
 
 unknown_word_label.grid(row=1, column=1, sticky = EW, padx=76, pady=50)
