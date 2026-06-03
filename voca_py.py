@@ -22,7 +22,7 @@ def read_csv_file():
     unknown_list=[]
     known_list=[]
     
-    with open('vocab_listing.csv') as vocab_csv:
+    with open('vocab_listing.csv', encoding="utf-8") as vocab_csv:
         #read original file
         line_reader = csv.reader(vocab_csv, delimiter=',')
 
@@ -43,7 +43,7 @@ def place_writer_at_end():
     read_csv_file()
 
     #rewrite whole file
-    with open('vocab_listing.csv', 'w') as vocab_csv:
+    with open('vocab_listing.csv', 'w', encoding="utf-8") as vocab_csv:
         line_writer = csv.writer(vocab_csv, delimiter=',')
         line_countby = 0
 
@@ -58,7 +58,7 @@ def place_writer_at_end():
 def generate_test_values():
     place_writer_at_end()
     
-    with open('vocab_listing.csv', 'w') as vocab_csv:
+    with open('vocab_listing.csv', 'w', encoding="utf-8") as vocab_csv:
         line_writer = csv.writer(vocab_csv, delimiter=',')
         
         line_writer.writerow(['skibidi', 'toilet'])
@@ -67,7 +67,7 @@ def generate_test_values():
     #print('test values generated')
     
     #testing
-    with open('vocab_listing.csv', 'r') as vocab_csv:
+    with open('vocab_listing.csv', encoding="utf-8") as vocab_csv:
         line_countby = 0
         line_reader = csv.reader(vocab_csv, delimiter=',')
         for row in line_reader:
@@ -98,7 +98,7 @@ def add_vocab():
             known_word = entered_word[comma_index+1:]
 
     #rewrite whole file
-    with open('vocab_listing.csv', 'w') as vocab_csv:
+    with open('vocab_listing.csv', 'w', encoding="utf-8") as vocab_csv:
         line_writer = csv.writer(vocab_csv, delimiter=',')
         line_countby = 0
 
@@ -133,7 +133,7 @@ def delete_vocab():
     known_list.pop(index)
     
     #rewrite whole csv file
-    with open('vocab_listing.csv', 'w') as vocab_csv:
+    with open('vocab_listing.csv', 'w', encoding="utf-8") as vocab_csv:
         line_writer = csv.writer(vocab_csv, delimiter=',')
 
         for i in range(0,len(unknown_list)):
@@ -189,7 +189,7 @@ mainframe = Frame(root)
 root.title("Voca\'py (name work in progress)")
 
 #set up fonts
-flashcard = Font(family="Arial", size=30)
+flashcard = Font(family="Arial", size=14)
 
 #set up widgets
 ####vocab frame (listbox, add, delete, entry)
@@ -225,8 +225,8 @@ unknown_word_var.set('skibidi')
 known_word_var = StringVar()
 known_word_var.set('toilet')
 
-unknown_word_label = Label(unknown_word_frame, textvariable=unknown_word_var, font=flashcard)
-known_word_label = Label(known_word_frame, textvariable=known_word_var, font=flashcard)
+unknown_word_label = Label(unknown_word_frame, textvariable=unknown_word_var, font=flashcard, wraplength=200)
+known_word_label = Label(known_word_frame, textvariable=known_word_var, font=flashcard, wraplength=200)
 
 refresh_button = Button(flashcard_frame, text="Refresh flashcards", command=generate_flashcards)
 next_button = Button(flashcard_frame, text="Next card", command=next_card, state=DISABLED)
@@ -254,11 +254,15 @@ word_entry.grid(row=4, column=1, columnspan=2, pady=10)
 flashcard_frame.grid(row=1, column=2, padx=20)
 
 unknown_word_frame.grid(row=1, column=1, padx=10)
+unknown_word_frame.config(bg="#ffffff")
 
 known_word_frame.grid(row=1, column=2, padx=10)
+known_word_frame.config(bg="#ffffff")
 
 unknown_word_label.grid(row=1, column=1, sticky = EW, padx=76, pady=50)
+unknown_word_label.config(bg="#ffffff")
 known_word_label.grid(row=1, column=1, sticky = EW, padx=76, pady=50)
+known_word_label.config(bg="#ffffff")
 
 refresh_button.grid(row=2, column=1, pady=10)
 next_button.grid(row=2, column=2, pady=10)
