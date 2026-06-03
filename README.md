@@ -7,13 +7,13 @@
 ## How to use Voca'py
 ### Setting up
 1. Download Voca'Py as a .zip and unzip it\
-![github repo with the Download ZIP button highlighted](readme_images/github_tut1.png)\
+![github repo with the Download ZIP button highlighted](readme_images/github_tut1.png)
 
 3. Download Python IDLE (No idea how to run it without IDLE)\
-![Python IDLE in it's natural habitat... i.e. the windows search bar](readme_images/github_tut2.png)\
+![Python IDLE in it's natural habitat... i.e. the windows search bar](readme_images/github_tut2.png)
 
 5. In IDLE, click on "File", then "Open..." and find "vocab.py" and open it\
-![Python IDLE interface with File highlighted](readme_images/github_tut3.png)\
+![Python IDLE interface with File highlighted](readme_images/github_tut3.png)
 ![vocab.py in it's natural habitat](readme_images/github_tut4.png)\
 
 7. Select the new window with the script that just popped up and click "Run" at the top (f5 on windows, fn+f5 on mac)\
@@ -23,13 +23,13 @@ Yes, you will have to do this every time. Mac users can put the script on their 
 
 ### Using Voca'Py
 Vocab list\
-![vocab list of Voca'Py](readme_images/usingVocaPy1.png)\
+![vocab list of Voca'Py](readme_images/usingVocaPy1.png)
 1. Enter a word into the input field
 - Your word MUST have a comma in-between the definition and the unknown word\
 2. Click "Add word" and it will appear in the vocab list
 - Click on a word in this list then "Delete word" to delete it
 
 Flashcards\
-![flashcards of Voca'Py](readme_images/usingVocaPy2.png)\
+![flashcards of Voca'Py](readme_images/usingVocaPy2.png)
 1. Click on "Refresh Cards" so that the changes to the vocab list reflect in the flashcards
 - This also shuffles their order and gets rid of "skibidi, toilet"
