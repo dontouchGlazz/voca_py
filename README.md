@@ -19,17 +19,17 @@
 7. Select the new window with the script that just popped up and click "Run" at the top (f5 on windows, fn+f5 on mac)\
 ![Python script with the Run button highlighted](readme_images/github_tut5.png)
 
-Yes you will have to do this every time. Mac users can put the script on their desktop and double click it to open. Sorry Windows.
+Yes, you will have to do this every time. Mac users can put the script on their desktop and double click it to open. Sorry Windows.
 
 ### Using Voca'Py
-Vocab list
+Vocab list\
 ![vocab list of Voca'Py](readme_images/usingVocaPy1.png)\
 1. Enter a word into the input field
-- your word MUST have a comma in-between the definition and the unknown word\
+- Your word MUST have a comma in-between the definition and the unknown word\
 2. Click "Add word" and it will appear in the vocab list
-- click on a word in this list then "Delete word" to delete it
+- Click on a word in this list then "Delete word" to delete it
 
-Flashcards
+Flashcards\
 ![flashcards of Voca'Py](readme_images/usingVocaPy2.png)\
-1. click on "Refresh Cards" so that the changes to the vocab list reflect in the flashcards
-- this also shuffles their order and gets rid of "skibidi, toilet"
+1. Click on "Refresh Cards" so that the changes to the vocab list reflect in the flashcards
+- This also shuffles their order and gets rid of "skibidi, toilet"
