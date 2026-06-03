@@ -1,8 +1,8 @@
 # Voca'py
 ## What is it?
-- flashcard program made in python with tkinter (the language gr 11 compsci teaches)
-- made out of hatred for quizlet (too laggy and too many ads)
-- Voca is vocab, 'py is python
+- Flashcard program made in python with tkinter (the language gr 11 compsci teaches)
+- Made out of hatred for quizlet (too laggy and too many ads)
+- Voca- is vocab, -'py is python
 
 ## How to use Voca'py
 ### Setting up
@@ -17,9 +17,9 @@
 ![vocab.py in it's natural habitat](readme_images/github_tut4.png)\
 
 7. Select the new window with the script that just popped up and click "Run" at the top (f5 on windows, fn+f5 on mac)\
-![Python script with the Run button highlighted](readme_images/github_tut5.png)\
+![Python script with the Run button highlighted](readme_images/github_tut5.png)
 
-Yes you will have to do this every time. Mac users can put the script on their desktop and double click it to open. Sorry Windows.\
+Yes you will have to do this every time. Mac users can put the script on their desktop and double click it to open. Sorry Windows.
 
 ### Using Voca'Py
 Vocab list
